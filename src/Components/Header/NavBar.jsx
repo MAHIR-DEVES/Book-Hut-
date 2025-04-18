@@ -1,16 +1,25 @@
 import React from 'react';
+import { NavLink } from 'react-router';
+import './navbar.css';
 
 const NavBar = () => {
   const links = (
     <>
-      <li className="mr-3">Home</li>
-      <li className="mr-3">About</li>
+      <NavLink to="/">
+        <li>Home</li>
+      </NavLink>
+      <NavLink to="about">
+        <li>About</li>
+      </NavLink>
+      <NavLink to="readList">
+        <li>Read List</li>
+      </NavLink>
     </>
   );
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
-      <div className="w-11/12 mx-auto flex justify-between">
+      <div className="w-11/12 mx-auto flex justify-between items-center">
         <div>
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,13 +46,17 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Book Hut</a>
+          <a className=" text-2xl font-bold">
+            Book <span className="text-2xl text-blue-600">Hut</span>
+          </a>
         </div>
         <div className=" hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal px-1">
+            <nav>{links}</nav>
+          </ul>
         </div>
         <div>
-          <a className="btn">Button</a>
+          <a className="btn btn-primary">Sing In</a>
         </div>
       </div>
     </div>
